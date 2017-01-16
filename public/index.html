@@ -2,29 +2,17 @@
 <html lang="en">
 </head>
 <title>Contact Us</title>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>-->
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
+<script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="app.js"></script>
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body ng-app="contactUs">
-
-    <h1>Contact Us</h1>
-
-    <div class="alert">
-        Invalid Entry
+    <div ng-controller="homeController as home">
+        <ui-view></ui-view>
     </div>
-
-    <form>
-        <legend>New Message</legend>
-        <input name="name" placeholder="Name"><br/>
-        <input name="email" placeholder="Email"><br/>        
-        <input name="message" placeholder="Message">
-        <input type="Submit">
-    </form>
-
-    <ul class='msg-list'></ul>
 </body>
 
 </html>
