@@ -2,16 +2,22 @@
 <html lang="en">
 </head>
 <title>Contact Us</title>
-<script src="../node_modules/angular/angular.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
-<script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.js"></script>
 <script src="app.js"></script>
+<script src="controllers/homeController.js"></script>
+<script src="services/homeService.js"></script>
 <link rel="stylesheet" href="assets/styles.css" />
 </head>
 
 <body ng-app="contactUs">
-    <div ng-controller="homeController as home">
-        <ui-view></ui-view>
+    <div ng-controller="homeController as homeVm">
+        <div ng-if="!homeVm.showDetailsPage">
+            <ng-include src="'templates/contact-form.html'" />
+        </div>
+        <div ng-if="homeVm.showDetailsPage===true">
+            <ng-include src="'templates/message-details.html'" />
+        </div>
     </div>
 </body>
 

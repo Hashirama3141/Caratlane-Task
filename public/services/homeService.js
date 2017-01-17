@@ -16,12 +16,27 @@
                 .catch(getMessagesFailed);
         };
 
+        self.saveMessage = function (message) {
+            return $http.post('/messages', JSON.stringify(message))
+                .then(postMessagesComplete)
+                .catch(postMessagesFailed);
+        }
+
         function getMessagesComplete(response) {
             return response.data;
         }
 
         function getMessagesFailed(error) {
             $log.error('XHR Failed for getMessages.' + error.data);
+            return $q.reject(error);
+        }
+
+        function postMessagesComplete(response) {
+            return response.data;
+        }
+
+        function postMessagesFailed(error) {
+            $log.error('XHR Failed for postMessages.' + error.data);
             return $q.reject(error);
         }
     };

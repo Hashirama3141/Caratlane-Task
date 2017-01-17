@@ -1,14 +1,27 @@
-    <h1>Contact Us</h1>
+<h1>Contact Us</h1>
 
-    <div class="alert">
-        Invalid Entry
-    </div>
+<div class="alert" ng-show="userForm.name.$invalid && !userForm.name.$pristine">
+    Invalid Entry
+</div>
 
-    <form>
-        <legend>New Message</legend>
-        <input name="name" placeholder="Name"><br/>
-        <input name="email" placeholder="Email"><br/>        
-        <input name="message" placeholder="Message">
-        <input type="Submit">
-    </form>
+<form name="userForm" ng-submit="homeVm.submitForm(userForm.$valid)" novalidate>
+    <legend>New Message</legend>
+    <input type="text" name="name" placeholder="Name" ng-model="homeVm.message.name" required><br/>
+    <input type="email" name="email" placeholder="Email" ng-model="homeVm.message.email" required><br/>
+    <input type="text" name="description" placeholder="Message" ng-model="homeVm.message.description" required>
+    <input type="Submit" ng-disabled="userForm.$invalid">
+</form>
 
+<div ng-show="homeVm.saveSuccessful">
+    Thanks for writing to us!
+</div>
+
+<div ng-show="homeVm.saveFailed==true">
+    Server error occurred!
+</div>
+
+<div ng-show="homeVm.showLoader" class="ajax-loader">
+    <img src="/assets/rolling.gif" />
+</div>
+
+<div ng-click="homeVm.showDetailsPage=!homeVm.showDetailsPage">Show Details</div>

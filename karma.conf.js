@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Mon Jan 16 2017 11:27:12 GMT+0530 (India Standard Time)
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -15,12 +15,13 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-    './node_modules/angular/angular.js',                             // angular
-    './node_modules/angular-ui-router/release/angular-ui-router.js', // ui-router
-    './node_modules/angular-mocks/angular-mocks.js',                 // loads our modules for tests
-    './public/app.js',                                                  // our angular app
-    './public/services/homeService.js',                                 // our Users factory
-    './public/**/*.spec.js'
+      './node_modules/angular/angular.js',                             // angular
+      './node_modules/angular-ui-router/release/angular-ui-router.js', // ui-router
+      './node_modules/angular-mocks/angular-mocks.js',                 // loads our modules for tests
+      './public/app.js',                                                  // our angular app
+      './public/services/homeService.js',                                 // our Users factory
+      './public/controllers/homeController.js',                                 // our Users factory      
+      './public/**/*.spec.js'
     ],
 
 

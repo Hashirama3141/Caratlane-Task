@@ -1,3 +1,5 @@
-    <ul class='msg-list' ng-repeat=message in home.messages>
-        <li>{{home}}</li>
-    </ul>
+<ul class='msg-list' ng-repeat="message in homeVm.messages">
+    <li>{{message}}</li>
+</ul>
+
+<div ng-click="homeVm.showDetailsPage=!homeVm.showDetailsPage">Show Main page</div>

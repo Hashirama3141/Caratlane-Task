@@ -102,3 +102,15 @@ input[type="submit"] {
   float: left;
   padding-right: 10px;
 }
+input[type="submit"]:hover {
+    background: steelblue;
+    cursor: pointer;
+}
+.ajax-loader{
+  position: fixed;
+  margin: 0 auto;
+}
+input[type="submit"]:disabled {
+    background: gray;
+    cursor: pointer;
+}
