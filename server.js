@@ -1,4 +1,4 @@
-//TODO segregate in seperate modules for redis,models etc
+//TODO refactor in seperate modules for redis,models etc
 
 var express = require('express');
 var app = new express();
@@ -8,6 +8,10 @@ var jsonParser = bodyParser.json();
 var redis = require('redis');
 var client = redis.createClient();
 
+client.on('error', function (err) {
+    throw err;
+});
+
 app.use(express.static('public'));
 
 app.get('/', function (request, response) {
@@ -15,7 +19,8 @@ app.get('/', function (request, response) {
 });
 
 app.get('/messages', function (request, response) {
-    client.lrange('messages', 0, -1, function (err, messageString) {
+    client.lrange('messages', 0, -1, function (error, messageString) {
+        if (error) response.json(503, { error: true });
         messageString = messageString.map(JSON.parse);
         response.json(messageString);
     });
@@ -28,7 +33,7 @@ app.post('/messages', jsonParser, function (request, response) {
     }
     else {
         client.lpush("messages", JSON.stringify(message), function (error) {
-            if (error) throw error;
+            if (error) response.json(503, { error: true });
             response.status(201).send(message.name);
         });
     }

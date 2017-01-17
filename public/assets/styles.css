@@ -114,3 +114,12 @@ input[type="submit"]:disabled {
     background: gray;
     cursor: pointer;
 }
+.navigate{
+  color:darkblue;
+    font-weight: bold;
+  
+}
+.navigate:hover{
+  cursor: pointer;
+  text-decoration:underline;
+}
